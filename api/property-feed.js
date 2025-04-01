@@ -1,4 +1,6 @@
-export default async function handler(req, res) {
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+
+module.exports = async function handler(req, res) {
   const headers = {
     'Authorization': 'Bearer YXBpLWNsaWVudC0xMzg0MWM0MC1hNWNlLTQwZjYtOGM5Ny0wYTIzMmU4ZGU0ZWNAY2hlcnJlLmNvbTpOdUNCJEtYcSVlV3lrSSVnUVY3eTlNczNNbWRzZ0hJUlUwISNCSkM0aFVPWGUzcDI3TjRhRUNac1gyOVFodXZO',
     'Content-Type': 'application/json',
@@ -69,4 +71,4 @@ export default async function handler(req, res) {
     console.error('Error fetching Cherre data:', err);
     res.status(500).json({ error: 'Failed to fetch property data.' });
   }
-}
+};
